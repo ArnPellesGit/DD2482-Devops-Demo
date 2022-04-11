@@ -1,8 +1,13 @@
-# Getting Started with Dagger
+## DD2482 - Demo - Week 4
+This is a repo hosting the demo we ([Per Arn](https://github.com/ArnPellesGit), [John Landeholt](https://github.com/landeholt)) created for the DevOps course for Week 4 / Task 2. The title of our demo being "A portable devkit for CI/CD pipelines".
 
-This project was bootstrapped with Vite
+The slides we used for the demo can be found [here](https://www.figma.com/proto/sNInuXaUGIMTtQQVpyt3Ei/code-coverage?page-id=2%3A2&node-id=150%3A757&viewport=250%2C48%2C0.09&scaling=contain&starting-point-node-id=150%3A757&show-proto-sidebar=1).
 
-## Available Scripts
+## Getting Started with Dagger
+
+This project was bootstrapped with Vite.
+
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -33,8 +38,15 @@ The `Netlify` plan is built by **Dagger**, but the `Surge` plan is built locally
 
 #### Surge
 
-https://github.com/ArnPellesGit/DD2482-Devops-Demo/commit/ea650f37a864adf166d2112d3b1cf716e7da3620
+https://github.com/ArnPellesGit/DD2482-Devops-Demo/blob/c71092cad35fa09ede75f747249f483b240f509f/main.cue#L98-L102
 
 #### Netlify
 
-
+```cue
+deploy: netlify.#Deploy & {
+			contents: build.contents.output
+			site:     client.env.APP_NAME
+			token:    client.env.NETLIFY_TOKEN
+			team:     client.env.NETLIFY_TEAM
+		}
+```
